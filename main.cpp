@@ -1,7 +1,7 @@
 //LANCEI O DESAFIO
 //CADA ERRO É 1 SHOT DE CACHAÇA
 //"Let the game begin!" - Jigsaw
-//Total de perdas: 4 shots
+//Total de perdas: 5 shots
 
 #include <iostream>
 #include <cstdlib>
@@ -62,6 +62,13 @@ void Codeblocks(){
 
 //-----------------------------------------------------------------------------------------------------------------
 
+//consulta realizada dia 20/06/2021 no site do tesouro direto e nubank;
+const float cdb = 0.0439; //rendimento de 2019;
+const float cdi = 0.0275; //rendimento acumulado dos ultimos 12 meses;
+const float TPF2026 = 0.0877; //tesouro prefixado 2026;
+const float TS2024 = 0.0562; //tesouro selic 2024;
+const float poupanca = 0.0444; //rendimento médio;
+
 int main() {
     cout << fixed << setprecision(2);
     //FirstWindow();
@@ -74,8 +81,17 @@ int main() {
     float rate = object.DefiningRate() / 100;
     float time = object.DefiningTime();
 
+    if ((time >= 0) && (time <= 1)){ //ate um ano
+
+    }else if ((time > 1) && (time <= 10)){ //de um a dez anos
+
+    }else if (time > 10){ //mais de dez anos
+
+    }
+
     cout << startingCapital << endl;
     cout << rate << endl;
     cout << time << endl;
+    cout << object.ConvertRate(rate, 1);
 
 }

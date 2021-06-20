@@ -1,5 +1,6 @@
 #ifndef tInvestimento_h
 #define tInvestimento_h
+#include <math.h>
 
 using namespace std;
 
@@ -58,6 +59,16 @@ typedef struct{
         }else if (type == 2){
             return (time/12);
         }
+    }
+
+    float ConvertRate(float rate, int type){
+        float convertedRate;
+        if (type == 1){
+            convertedRate = pow((1+rate), 1.0/12) - 1;
+        }else if(type == 2){
+
+        }
+        return convertedRate;
     }
 }tInvestimento;
 
