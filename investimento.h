@@ -5,9 +5,17 @@
 using namespace std;
 
 typedef struct{
+    float startingCapital=0;
+    float rate=0;
+    float time=0;
+    int type=0;
+}DefValues;
+
+typedef struct{
+    DefValues value;
 
     float DefiningCapital(){
-        float startingCapital=0;
+
         system("cls");
         for (int i=0; i<3; i++){cout << endl;}
         cout << "\t +------------------------------------------------+" << endl;
@@ -16,12 +24,12 @@ typedef struct{
         cout << "\t |           HAVE TO INVEST HIGH NOW              |" << endl;
         cout << "\t |                                                |" << endl;
         cout << "\t +------------------------------------------------+" << endl;
-        cout << "\t   I have: R$ "; cin >> startingCapital;
-        return (startingCapital);
+        cout << "\t   I have: R$ "; cin >> value.startingCapital;
+        return (value.startingCapital);
     }
 
     float DefiningRate(){
-        float rate=0;
+
         system("cls");
         for (int i=0; i<3; i++){cout << endl;}
         cout << "\t +------------------------------------------------+" << endl;
@@ -30,13 +38,13 @@ typedef struct{
         cout << "\t |          WHAT IS THE INTEREST RATE             |" << endl;
         cout << "\t |                                                |" << endl;
         cout << "\t +------------------------------------------------+" << endl;
-        cout << "\t   The rate is: "; cin >> rate;
-        return (rate);
+        cout << "\t   The rate is: "; cin >> value.rate;
+        value.rate = value.rate / 100;
+        return (value.rate);
     }
 
     float DefiningTime(){
-        float time=0;
-        int type=0;
+
         system("cls");
         for (int i=0; i<3; i++){cout << endl;}
         cout << "\t +------------------------------------------------+" << endl;
@@ -51,24 +59,24 @@ typedef struct{
         cout << "\t |      IN YEARS (enter 1) OR MONTHS (enter 2).   |" << endl;
         cout << "\t |                                                |" << endl;
         cout << "\t +------------------------------------------------+" << endl;
-        cout << "\t   Time: "; cin >> time;
-        cout << "\t   Type: "; cin >> type;
+        cout << "\t   Time: "; cin >> value.time;
+        cout << "\t   Type: "; cin >> value.type;
 
-        if (type == 1){
-            return (time);
-        }else if (type == 2){
-            return (time/12);
+        if (value.type == 1){
+            return (value.time);
+        }else if (value.type == 2){
+            return (value.time/12);
         }
     }
 
-    float ConvertRate(float rate, int type){
+    float ConvertRate(){
         float convertedRate;
-        if (type == 1){
-            convertedRate = pow((1+rate), 1.0/12) - 1;
-        }else if(type == 2){
-
+        if (value.type == 1){
+            convertedRate = pow((1+value.rate), 1.0/12) - 1;
+        }else if(value.type == 2){
+            convertedRate = pow((1+value.rate), 12) - 1;
         }
-        return convertedRate;
+        return (convertedRate*100);
     }
 }tInvestimento;
 

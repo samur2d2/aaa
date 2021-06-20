@@ -78,7 +78,7 @@ int main() {
     tInvestimento object;
 
     float startingCapital = object.DefiningCapital();
-    float rate = object.DefiningRate() / 100;
+    float rate = object.DefiningRate();
     float time = object.DefiningTime();
 
     if ((time >= 0) && (time <= 1)){ //ate um ano
@@ -92,6 +92,6 @@ int main() {
     cout << startingCapital << endl;
     cout << rate << endl;
     cout << time << endl;
-    cout << object.ConvertRate(rate, 1);
+    cout << object.ConvertRate();
 
 }
