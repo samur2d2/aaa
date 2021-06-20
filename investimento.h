@@ -29,7 +29,8 @@ typedef struct{
         cout << "\t |           HAVE TO INVEST HIGH NOW              |" << endl;
         cout << "\t |                                                |" << endl;
         cout << "\t +------------------------------------------------+" << endl;
-        cout << "\t   I have: R$ "; cin >> value.startingCapital;
+        cout << "\t   I have: R$ "; //cin >> value.startingCapital;
+        value.startingCapital = 1000;
         return (value.startingCapital);
     }
 //----------------------------------------------------------------------------------------------------
@@ -42,7 +43,8 @@ typedef struct{
         cout << "\t |       WHAT IS THE ANUAL INTEREST RATE          |" << endl;
         cout << "\t |                                                |" << endl;
         cout << "\t +------------------------------------------------+" << endl;
-        cout << "\t   The rate is: "; cin >> value.rate[2];
+        cout << "\t   The rate is: "; //cin >> value.rate[2];
+        value.rate[2] = 10;
         value.rate[2] = value.rate[2] / 100;
         return (value.rate[2]);
     }
@@ -62,8 +64,10 @@ typedef struct{
         cout << "\t |      IN YEARS (enter 1) OR MONTHS (enter 2).   |" << endl;
         cout << "\t |                                                |" << endl;
         cout << "\t +------------------------------------------------+" << endl;
-        cout << "\t   Time: "; cin >> value.time;
-        cout << "\t   Type: "; cin >> value.type;
+        cout << "\t   Time: "; //cin >> value.time;
+        value.time = 12;
+        cout << "\t   Type: "; //cin >> value.type;
+        value.type = 2;
 
         if (value.type == 2){
             value.time = value.time/12;
@@ -78,43 +82,44 @@ typedef struct{
 //----------------------------------------------------------------------------------------------------
     void SimpleInterest(){
         system("cls");
-        cout << "\t +---------------------------------------------+" << endl;
-        cout << "\t |                                             |" << endl;
-        cout << "\t |               SIMPLE INTEREST               |" << endl;
-        cout << "\t |                                             |" << endl;
-        cout << "\t +---------------------------------------------+" << endl;
+        cout << "\t  +-----------------------+" << endl;
+        cout << "\t  |                       |" << endl;
+        cout << "\t  |   SIMPLE INTEREST     |" << endl;
+        cout << "\t  |                       |" << endl;
+        cout << "  +-------|-----------------------|" << endl;
         if ((value.time >= 0) && (value.time <= 2)){ //ate um ano calcula cada mes
-            cout << "\t |      MONTH       INTEREST       AMOUNT      |" << endl;
-            cout << "\t +---------------------------------------------+" << endl;
+
+            cout << "  | MONTH | INTEREST     AMOUNT   |" << endl;
+            cout << "  |-------|-----------------------|" << endl;
             for (int t=1; t<=(value.time*12); t++){
                 value.simpleInterest = value.startingCapital * (value.rate[2]/12) * t;
                 value.simpleAmount = value.startingCapital + value.simpleInterest;
-                cout << "\t |" << setw(11) << t;
-                cout << setw(15) << value.simpleInterest;
-                cout << setw(13) << value.simpleAmount << "      |" << endl;
+                cout << "  |" << setw(5) << t << "  |";
+                cout << setw(8) << value.simpleInterest;
+                cout << setw(12) << value.simpleAmount << "   |" << endl;
             }
         }else if ((value.time > 2) && (value.time <= 10)){ //de um a dez anos calcula cada 6 meses
-            cout << "\t |     SEMESTER      INTEREST      AMOUNT      |" << endl;
-            cout << "\t +---------------------------------------------+" << endl;
+            cout << "  |     SEMESTER      INTEREST      AMOUNT      |" << endl;
+            cout << "  +-------------------------------+" << endl;
             for (int t=1; t<=(value.time*2); t++){
                 value.simpleInterest = value.startingCapital * (value.rate[2]/2) * t;
                 value.simpleAmount = value.startingCapital + value.simpleInterest;
-                cout << "\t |" << setw(13) << t;
+                cout << "  |" << setw(13) << t;
                 cout << setw(14) << value.simpleInterest;
                 cout << setw(12) << value.simpleAmount << "      |" << endl;
             }
         }else if (value.time > 10){ //mais de dez anos calcula cada ano
-            cout << "\t |      ANUAL       INTEREST       AMOUNT      |" << endl;
-            cout << "\t +---------------------------------------------+" << endl;
+            cout << "  |      ANUAL       INTEREST       AMOUNT      |" << endl;
+            cout << "  +-------------------------------+" << endl;
             for (int t=1; t<=(value.time); t++){
                 value.simpleInterest = value.startingCapital * value.rate[2] * t;
                 value.simpleAmount = value.startingCapital + value.simpleInterest;
-                cout << "\t |" << setw(11) << t;
+                cout << "  |" << setw(11) << t;
                 cout << setw(15) << value.simpleInterest;
                 cout << setw(13) << value.simpleAmount << "      |" << endl;
             }
         }
-        cout << "\t +---------------------------------------------+" << endl;
+        cout << "  +-------------------------------+" << endl;
     }
 //----------------------------------------------------------------------------------------------------
     void CompoundInterest(){
