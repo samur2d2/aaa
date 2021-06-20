@@ -39,7 +39,7 @@ void FirstWindow(){
 
 //-----------------------------------------------------------------------------------------------------------------
 
-void Codeblocks(){
+void SecondWindow(){
     system("cls");
     for (int i=0; i<3; i++){cout << endl;}
     cout << "\t +------------------------------------------------+" << endl;
@@ -53,28 +53,49 @@ void Codeblocks(){
     cout << "\t |   - I will need you tell me some important     |" << endl;
     cout << "\t |     informations like value and time.          |" << endl;
     cout << "\t |   - Use dot, not comma.                        |" << endl;
-    cout << "\t |   - Let's go.                                  |" << endl;
+    cout << "\t |   - Put the window to full screen.             |" << endl;
     cout << "\t |                                                |" << endl;
     cout << "\t +------------------------------------------------+" << endl;
     for (int i=0; i<1; i++){cout << endl;}
     cout << "\t" << system("pause");
 }
-
 //-----------------------------------------------------------------------------------------------------------------
-
+char RunAgain(){
+    char option = ' ';
+    system("cls");
+    for (int i=0; i<3; i++){cout << endl;}
+    cout << "\t +---------------------------------------------+" << endl;
+    cout << "\t |                                             |" << endl;
+    cout << "\t |    DO YOU WANT TO RUN THE PROGRAM AGAIN?    |" << endl;
+    cout << "\t |                                             |" << endl;
+    cout << "\t +---------------------------------------------+" << endl;
+    for (int i=0; i<3; i++){cout << endl;}
+    cout << "\t Please enter Y to continue or X to exit: ";
+    cin >> option;
+    if (toupper(option) == 'Y'){}
+    else{exit(EXIT_FAILURE);}
+}
+//-----------------------------------------------------------------------------------------------------------------
 int main() {
     cout << fixed << setprecision(2);
-    //FirstWindow();
 
-    //Codeblocks();
+    FirstWindow();
+
+    SecondWindow();
 
     tInvestimento object;
 
-    object.DefiningCapital();
-    object.DefiningTime();
-    object.DefiningRate();
-    object.ConvertRate();
 
-    object.SimpleInterest();
+    bool close = true;
+    do{
+        object.DefiningCapital();
+        object.DefiningTime();
+        object.DefiningRate();
+        object.ConvertRate();
+        object.SimpleInterest();
+        system("pause");
+        RunAgain();
+
+    }while ((close ==true ));
 
 }

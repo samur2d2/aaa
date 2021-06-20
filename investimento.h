@@ -37,8 +37,7 @@ typedef struct{
         cout << "\t |           HAVE TO INVEST HIGH NOW              |" << endl;
         cout << "\t |                                                |" << endl;
         cout << "\t +------------------------------------------------+" << endl;
-        cout << "\t   I have: R$ "; //cin >> value.startingCapital;
-        value.startingCapital = 1000;
+        cout << "\t   I have: R$ "; cin >> value.startingCapital;
         return (value.startingCapital);
     }
 //----------------------------------------------------------------------------------------------------
@@ -51,8 +50,7 @@ typedef struct{
         cout << "\t |       WHAT IS THE ANUAL INTEREST RATE          |" << endl;
         cout << "\t |                                                |" << endl;
         cout << "\t +------------------------------------------------+" << endl;
-        cout << "\t   The rate is: "; //cin >> value.rate[2];
-        value.rate[2] = 10;
+        cout << "\t   The rate is: "; cin >> value.rate[2];
         value.rate[2] = value.rate[2] / 100;
         return (value.rate[2]);
     }
@@ -72,11 +70,8 @@ typedef struct{
         cout << "\t |      IN YEARS (enter 1) OR MONTHS (enter 2).   |" << endl;
         cout << "\t |                                                |" << endl;
         cout << "\t +------------------------------------------------+" << endl;
-        cout << "\t   Time: "; //cin >> value.time;
-        value.time = 15;
-        cout << "\t   Type: "; //cin >> value.type;
-        value.type = 2;
-
+        cout << "\t   Time: "; cin >> value.time;
+        cout << "\t   Type: "; cin >> value.type;
         if (value.type == 2){
             value.time = value.time/12;
         }
@@ -90,10 +85,30 @@ typedef struct{
 //----------------------------------------------------------------------------------------------------
     void SimpleInterest(){
         system("cls");
+        cout << endl;
         cout << "\t    +-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+" << endl;
         cout << "\t    |                       |                       |                       |                       |                       |                       |" << endl;
         cout << "\t    |    SIMPLE INTEREST    |   COMPOUND INTEREST   |  TESOURO SELIC 2024   |          CDI          |          CBD          |      BANK SAVING      |" << endl;
         cout << "\t    |                       |                       |                       |                       |                       |                       |" << endl;
+        cout << "\t    +-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+" << endl;
+        cout << "\t    |    M. rate: " << setw(5) <<(value.rate[2]*100/12) << "%    |";
+        cout << "    M. rate: " << setw(5) << (value.rate[0]*100) << "%    |";
+        cout << "    M. rate: " << setw(5) << (TS2024Rate[0]*100) << "%    |";
+        cout << "    M. rate: " << setw(5) << (cdiRate[0]*100) << "%    |";
+        cout << "    M. rate: " << setw(5) <<(cdbRate[0]*100) << "%    |";
+        cout << "    M. rate: " << setw(5) << (poupancaRate[0]*100) << "%    |" << endl;
+        cout << "\t    |    S. rate: " << setw(5) <<(value.rate[2]*100/2) << "%    |";
+        cout << "    S. rate: " << setw(5) << (value.rate[1]*100) << "%    |";
+        cout << "    S. rate: " << setw(5) << (TS2024Rate[1]*100) << "%    |";
+        cout << "    S. rate: " << setw(5) << (cdiRate[1]*100) << "%    |";
+        cout << "    S. rate: " << setw(5) <<(cdbRate[1]*100) << "%    |";
+        cout << "    S. rate: " << setw(5) << (poupancaRate[1]*100) << "%    |" << endl;
+        cout << "\t    |    S. rate: " << setw(5) <<(value.rate[2]*100) << "%    |";
+        cout << "    A. rate: " << setw(5) << (value.rate[2]*100) << "%    |";
+        cout << "    A. rate: " << setw(5) << (TS2024Rate[2]*100) << "%    |";
+        cout << "    A. rate: " << setw(5) << (cdiRate[2]*100) << "%    |";
+        cout << "    A. rate: " << setw(5) <<(cdbRate[2]*100) << "%    |";
+        cout << "    A. rate: " << setw(5) << (poupancaRate[2]*100) << "%    |" << endl;
         cout << "  +---------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|" << endl;
         if ((value.time >= 0) && (value.time <= 2)){ //ate um ano calcula cada mes
 
@@ -185,11 +200,23 @@ typedef struct{
                 value.poupancaInterest = value.startingCapital * (pow((1+poupancaRate[2]),t) - 1);
                 value.poupancaAmount = value.startingCapital + value.poupancaInterest;
 
-                cout << "  |" << setw(5) << t << "    |";
+                cout << "  |" << setw(6) << t << "   |";
                 cout << setw(9) << value.simpleInterest << setw(13) << value.simpleAmount << " |";
-                cout << setw(9) << value.compoundInterest << setw(13) << value.compoundAmount << " |" << endl;
+                cout << setw(9) << value.compoundInterest << setw(13) << value.compoundAmount << " |";
+                cout << setw(9) << value.ts2024Interest << setw(13) << value.ts2024Amount << " |";
+                cout << setw(9) << value.cdiInterest << setw(13) << value.cdiAmount << " |";
+                cout << setw(9) << value.cdbInterest << setw(13) << value.cdbAmount << " |";
+                cout << setw(9) << value.poupancaInterest << setw(13) << value.poupancaAmount << " |" << endl;
             }
         }
+        cout << "  |---------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|" << endl;
+        cout << "  |  TOTAL  |";
+        cout << setw(9) << value.simpleInterest << setw(13) << value.simpleAmount << " |";
+        cout << setw(9) << value.compoundInterest << setw(13) << value.compoundAmount << " |";
+        cout << setw(9) << value.ts2024Interest << setw(13) << value.ts2024Amount << " |";
+        cout << setw(9) << value.cdiInterest << setw(13) << value.cdiAmount << " |";
+        cout << setw(9) << value.cdbInterest << setw(13) << value.cdbAmount << " |";
+        cout << setw(9) << value.poupancaInterest << setw(13) << value.poupancaAmount << " |" << endl;
         cout << "  +---------------------------------------------------------------------------------------------------------------------------------------------------------+" << endl;
     }
 //----------------------------------------------------------------------------------------------------
