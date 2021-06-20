@@ -62,13 +62,6 @@ void Codeblocks(){
 
 //-----------------------------------------------------------------------------------------------------------------
 
-//consulta realizada dia 20/06/2021 no site do tesouro direto e nubank;
-const float cdb = 0.0439; //rendimento de 2019;
-const float cdi = 0.0275; //rendimento acumulado dos ultimos 12 meses;
-const float TPF2026 = 0.0877; //tesouro prefixado 2026;
-const float TS2024 = 0.0562; //tesouro selic 2024;
-const float poupanca = 0.0444; //rendimento médio;
-
 int main() {
     cout << fixed << setprecision(2);
     //FirstWindow();
@@ -83,6 +76,5 @@ int main() {
     object.ConvertRate();
 
     object.SimpleInterest();
-    object.CompoundInterest();
 
 }
