@@ -77,21 +77,12 @@ int main() {
 
     tInvestimento object;
 
-    float startingCapital = object.DefiningCapital();
-    float rate = object.DefiningRate();
-    float time = object.DefiningTime();
+    object.DefiningCapital();
+    object.DefiningTime();
+    object.DefiningRate();
+    object.ConvertRate();
 
-    if ((time >= 0) && (time <= 1)){ //ate um ano
-
-    }else if ((time > 1) && (time <= 10)){ //de um a dez anos
-
-    }else if (time > 10){ //mais de dez anos
-
-    }
-
-    cout << startingCapital << endl;
-    cout << rate << endl;
-    cout << time << endl;
-    cout << object.ConvertRate();
+    object.SimpleInterest();
+    object.CompoundInterest();
 
 }
