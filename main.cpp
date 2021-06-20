@@ -1,7 +1,7 @@
 //LANCEI O DESAFIO
 //CADA ERRO É 1 SHOT DE CACHAÇA
 //"Let the game begin!" - Jigsaw
-//Total de perdas: 3 shots
+//Total de perdas: 4 shots
 
 #include <iostream>
 #include <cstdlib>
@@ -70,9 +70,12 @@ int main() {
 
     tInvestimento object;
 
-    float startingCapital = object.ChoosingAction();
+    float startingCapital = object.DefiningCapital();
+    float rate = object.DefiningRate() / 100;
+    float time = object.DefiningTime();
 
-    cout << startingCapital;
-
+    cout << startingCapital << endl;
+    cout << rate << endl;
+    cout << time << endl;
 
 }
