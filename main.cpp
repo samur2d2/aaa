@@ -1,3 +1,7 @@
+//LANCEI O DESAFIO
+//CADA ERRO É 1/2 SHOT DE CACHAÇA
+//"Let the game begin!" - Jigsaw
+//Total de perdas: 0 shots
 #include <iostream>
 #include <cstdlib>
 #include <stdlib.h>
