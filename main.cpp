@@ -1,7 +1,7 @@
 //LANCEI O DESAFIO
-//CADA ERRO É 1/2 SHOT DE CACHAÇA
+//CADA ERRO É 1 SHOT DE CACHAÇA
 //"Let the game begin!" - Jigsaw
-//Total de perdas: 0 shots
+//Total de perdas: 1 shots
 #include <iostream>
 #include <cstdlib>
 #include <stdlib.h>
@@ -9,8 +9,6 @@
 #include "investimento.h"
 
 using namespace std;
-
-
 
 void FirstWindow(){
     for (int i=0; i<30; i++){cout<<endl;}
